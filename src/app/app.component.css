@@ -57,5 +57,14 @@
     border-radius: 25px;
     margin: auto;
     padding: 7px;
+    
   }
+  form .btn-login:disabled {
+    background-color: burlywood;
+    pointer-events: none;
+  }
+  .point {
+    cursor: pointer;
   
+  }
+ 
