@@ -34,7 +34,8 @@
           <label for="login-password">Password</label>
           <input formControlName="password" type="password" id="create-password" />
         </div>
-        <button type="submit" class="btn-cadastrar point">Cadastrar</button>
+        <button type="submit" class="btn-login point" [disabled]="formCreate.invalid"> Cadastrar</button>
+        <button type="submit" class="btn-cadastrar point" (click)="RenderformLogin()">Login</button>
       </form>
       </ng-template>
   </div>

@@ -52,6 +52,10 @@ export class AppComponent implements OnInit {
     this.mostraLogin = false; // oculta o form login
 
   }
+  RenderformLogin() {
+    this.formCreate.reset(); // limpa o formulario caso queria cadastrar
+    this.mostraLogin = true; // oculta o form login
+  }
   cadastrar() {
     this.email = this.formLogin.get('email').value;
     this.password = this.formLogin.get('password').value;
