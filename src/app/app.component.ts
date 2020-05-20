@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { FirebaseError } from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,6 @@ export class AppComponent implements OnInit {
       password: ['', Validators.required]
     })
 
-
     this.formCreate = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -57,14 +57,22 @@ export class AppComponent implements OnInit {
     this.mostraLogin = true; // oculta o form login
   }
   cadastrar() {
-    this.email = this.formLogin.get('email').value;
-    this.password = this.formLogin.get('password').value;
+    this.email = this.formCreate.get('email').value;
+    this.password = this.formCreate.get('password').value;
     this.angularFire.createUserWithEmailAndPassword(this.email, this.password).then((res) => {
       console.log(res);
-    }, (error) => {
-      console.log(error);
+    }, (error: FirebaseError) => {
+      switch (error.code) {
+        case "auth/invalid-email":
+          alert('Seu email é invalido');
+          break;
+        case "auth/email-already-in-use":
+          alert('email ja existe');
+          break;
+        case "auth/weak-password":
+          alert('minimo 6 caracteres na senha');
+      }
     })
-
   }
 
   returnLogin() {
