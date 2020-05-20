@@ -1,20 +1,41 @@
 <app-header></app-header>
 <section class="form-section">
-    <br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br>
+  <div *ngIf="mostraLogin; else titleCadastro">
     <h1>LOGIN</h1>
+  </div>
+  <ng-template #titleCadastro>
+    <h1>Cadastrar</h1>
+    </ng-template>
 
-    <div>
-      <form [formGroup]="formLogin" (submit)="login()">
+  <div>
+    <form [formGroup]="formLogin" (submit)="login()">
+      <div *ngIf="mostraLogin; else mostrarCadastro">
         <div class="input-block">
           <label for="login-email">Email</label>
-          <input formControlName="email" type="email" id="login-email"/>
+          <input formControlName="email" type="email" id="login-email" />
         </div>
         <div class="input-block">
           <label for="login-password">Password</label>
-          <input  formControlName="password" type="password" id="login-password"  />
+          <input formControlName="password" type="password" id="login-password" />
         </div>
         <button type="submit" class="btn-login point" [disabled]="formLogin.invalid">Login</button>
-      </form>
-    </div>
-  </section>
+        <br>
+      </div>
+
+      <ng-template #mostrarCadastro>
+        <div class="input-block">
+          <label for="login-email">Email</label>
+          <input formControlName="email" type="email" id="login-email" />
+        </div>
+        <div class="input-block">
+          <label for="login-password">Password</label>
+          <input formControlName="password" type="password" id="login-password" />
+        </div>
+        <button type="submit" class="btn-login point" (click)="returnLogin()">Login</button>
+      </ng-template>
+      <button type="button" class="btn-cadastrar point" (click)="cadastrar()">Cadastrar</button>
+    </form>
+  </div>
+</section>
 <app-footer></app-footer>

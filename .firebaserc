@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "nachurch-mobile": {
+      "hosting": {
+        "angular-firebase": [
+          "nachurch-mobile"
+        ]
+      }
+    }
+  }
+}

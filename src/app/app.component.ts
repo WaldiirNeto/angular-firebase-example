@@ -12,6 +12,7 @@ export class AppComponent implements OnInit  {
 
   title: string;
   formLogin: FormGroup;
+  mostraLogin = true;
 
   ngOnInit() {
       this.formulario();
@@ -27,6 +28,14 @@ export class AppComponent implements OnInit  {
   }
   login(){
     console.log(this.formLogin.getRawValue());
+    // LOGAR COM FIREBASE
+    
+  }
+  cadastrar() {
+    this.mostraLogin = false;
+  }
+  returnLogin() {
+    this.mostraLogin = true;
   }
 
 }

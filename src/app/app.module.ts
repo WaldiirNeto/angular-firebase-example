@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HeaderModule } from './shared/header/header.module';
 import { FooterModule } from './shared/footer/footer.module';
+import { MyFirebaseModule } from './shared/my-firebase/my-firebase.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FooterModule } from './shared/footer/footer.module';
     FormsModule,
     ReactiveFormsModule,
     HeaderModule,
-    FooterModule  
+    FooterModule,
+    MyFirebaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

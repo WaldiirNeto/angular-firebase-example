@@ -59,6 +59,19 @@
     padding: 7px;
     
   }
+
+
+  form .btn-cadastrar {
+    display: block;
+    min-width: 120px;
+    border: none;
+    background-color: #1de9b6;
+    color: white;
+    border-radius: 25px;
+    margin: auto;
+    padding: 7px;
+    
+  }
   form .btn-login:disabled {
     background-color: burlywood;
     pointer-events: none;
